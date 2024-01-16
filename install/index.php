@@ -211,7 +211,6 @@ if(is_writeable($installFile)){
         						</div>
     					    </div>
 					    
-					 
 					    
                             <?php
                               $license_code = null;
@@ -330,7 +329,7 @@ if(is_writeable($installFile)){
                             
                             <?php } ?>
 					    
-					    <?php break; case "0": ?>
+					    <?php break; case "1": ?>
 					    
 					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 
@@ -518,7 +517,7 @@ if(is_writeable($installFile)){
 
                                 <?php } ?>
 					    
-					    <?php break; case "1": ?>
+					    <?php break; case "2": ?>
 					    
     					    <?php if($_POST && isset($_POST["dbscs"])){
                                 session_destroy();

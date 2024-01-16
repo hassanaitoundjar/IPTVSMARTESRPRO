@@ -462,11 +462,11 @@ if(is_writeable($installFile)){
 
                                       mysqli_autocommit($con,FALSE);
                 
-                                      // Update envato client details
-                                      $sqlUpdate="UPDATE tbl_settings SET 
-                                        `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
-                                        `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
-                                        `envato_package_name` = '' WHERE `id` = 1";
+                                    //   // Update envato client details
+                                    //   $sqlUpdate="UPDATE tbl_settings SET 
+                                    //     `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
+                                    //     `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
+                                    //     `envato_package_name` = '' WHERE `id` = 1";
                 
                                       $result=mysqli_query($con, $sqlUpdate) or die(mysqli_error($con));
                                       
@@ -558,7 +558,6 @@ if(is_writeable($installFile)){
                                     
                                     <h2 style="color: #f44336c7;">Sorry, something went wrong.</h2>
 									
-									error_log(test $errors)
 
                                 <?php } ?>
 					    

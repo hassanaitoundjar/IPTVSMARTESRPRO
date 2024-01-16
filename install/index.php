@@ -211,7 +211,168 @@ if(is_writeable($installFile)){
         						</div>
     					    </div>
 					    
+					    <?php break; case "0": ?>
 					    
+                            <?php
+                              $license_code = null;
+                              $client_name = null;
+                              if(!empty($_POST['license'])&&!empty($_POST['client'])){
+                                $license_code = strip_tags(trim($_POST["license"]));
+                                $client_name = strip_tags(trim($_POST["client"]));
+                                
+                                $activate_response = activate_license($license_code,$client_name,$item_id);
+                                
+                                $_SESSION['envato_buyer_name']=$client_name;
+                                $_SESSION['envato_purchase_code']=$license_code;
+            
+                                if(empty($activate_response)){
+                                  $msg='Server is unavailable.';
+                                } else {
+                                  $msg=$activate_response['message'];
+                                }
+                                if($activate_response['status'] != true){ ?>
+                                
+                                    <div class="card__image">
+            							<img src="https://assets.nemosofts.com/install/images/verified_error.png" alt="">
+            						</div>
+            						<div class="card__content">
+            							<div class="card__content__head">
+            								<h3 class="card__title">
+            									<span>Verify Envato Purchase Code</span>
+            								</h3>
+            								<ol class="card__fade">
+            									<li>Log into your Envato Market account.</li>
+            									<li>Hover the mouse over your username at the top of the screen.</li>
+            									<li>Click ‘Downloads’ from the drop-down menu.</li>
+            									<li>Click ‘License certificate & purchase code’.</li>
+            								</ol>
+            							</div>
+            							<div class="card__fade">
+            							    <form action="index.php?step=0" method="POST">
+                								<div class="mb-48">
+                								    <div class="notify notify--error" style="margin-bottom: 18px;">
+                										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                											<path fill="none" d="M0 0h24v24H0z"/>
+                											<path fill="currentColor" d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/>
+                										</svg>
+                										<span class="notify__text"><?php echo ucfirst($msg); ?></span>
+                									</div>
+            									
+                									<label for="name" class="form-label">Envato user name</label>
+                									<div class="form-group">
+                										<svg class="form-group__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                											<path fill="none" d="M0 0h24v24H0z"/>
+                											<path d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v2zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+                										</svg>
+                										<input class="form-control" type="text" placeholder="Enter your envato user name" name="client" autocomplete="off" required>
+                									</div>
+                									<label for="code" class="form-label">Purchase code</label>
+                									<div class="form-group">
+                										<svg class="form-group__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                											<path fill="none" d="M0 0h24v24H0z"/>
+                											<path d="M12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976L12 1zm0 2.049L5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05zM12 7a2 2 0 0 1 1.001 3.732L13 15h-2v-4.268A2 2 0 0 1 12 7z"/>
+                										</svg>
+                										<input class="form-control mb-8" type="text" placeholder="Enter your item purchase code" name="license" autocomplete="off" required>
+                										<a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" class="text-red" target="_blank">Where Is My Purchase Code?</a>
+                									</div>
+                								</div>
+                								<div class="card__content__foot">
+                									<div class="text-right">
+                									     <button type="submit" class="btn btn--primary btn--slide" style="min-width: 124px;">Verify</button>
+                									</div>
+                								</div>
+            								</form>
+            							</div>
+            						</div>
+        						
+                                
+                                <?php }else{ ?>
+                                
+                                
+                                <div class="card__image">
+            							<img src="https://assets.nemosofts.com/install/images/verified_success.png" alt="">
+            						</div>
+            						<div class="card__content">
+            							<div class="card__content__head">
+            								<h3 class="card__title">
+            									<span>Verify Envato Purchase Code</span>
+        									
+            								</h3>
+            							</div>
+            							<div class="card__fade">
+            							    <form action="index.php?step=1" method="POST">
+                								<div class="mb-48">
+                								    <div class="notify notify--success">
+                										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                											<path fill="none" d="M0 0h24v24H0z"/>
+                											<path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"/>
+                										</svg>
+                										<span class="notify__text"><?php echo ucfirst($msg); ?></span>
+                									</div>
+                									<input type="hidden" name="lcscs" id="lcscs" value="<?php echo ucfirst($activate_response['status']); ?>">
+                								</div>
+                								<div class="card__content__foot">
+                									<div class="text-right">
+                									    <button type="submit" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</button>
+                									</div>
+                								    
+                								</div>
+            								</form>
+            							</div>
+            						</div>
+                                
+                                <?php } ?>
+                                
+                            <?php }else{ ?>
+                            
+                                <div class="card__image">
+        							<img src="https://assets.nemosofts.com/install/images/verified.png" alt="">
+        						</div>
+        						<div class="card__content">
+        							<div class="card__content__head">
+        								<h3 class="card__title">
+        									<span>Verify Envato Purchase Code</span>
+        								</h3>
+        								<ol class="card__fade">
+        									<li>Log into your Envato Market account.</li>
+        									<li>Hover the mouse over your username at the top of the screen.</li>
+        									<li>Click ‘Downloads’ from the drop-down menu.</li>
+        									<li>Click ‘License certificate & purchase code’.</li>
+        								</ol>
+        							</div>
+        							<div class="card__fade">
+        							    <form action="index.php?step=0" method="POST">
+            								<div class="mb-48">
+            									<label for="name" class="form-label">Envato user name</label>
+            									<div class="form-group">
+            										<svg class="form-group__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            											<path fill="none" d="M0 0h24v24H0z"/>
+            											<path d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v2zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+            										</svg>
+            										<input class="form-control" type="text" placeholder="Enter your envato user name" name="client" autocomplete="off" required>
+            									</div>
+            									<label for="code" class="form-label">Purchase code</label>
+            									<div class="form-group">
+            										<svg class="form-group__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            											<path fill="none" d="M0 0h24v24H0z"/>
+            											<path d="M12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976L12 1zm0 2.049L5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05zM12 7a2 2 0 0 1 1.001 3.732L13 15h-2v-4.268A2 2 0 0 1 12 7z"/>
+            										</svg>
+            										<input class="form-control mb-8" type="text" placeholder="Enter your item purchase code" name="license" autocomplete="off" required>
+            										<a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" class="text-red" target="_blank">Where Is My Purchase Code?</a>
+            									</div>
+            								</div>
+            								<div class="card__content__foot">
+            									<div class="text-right">
+            									    <button type="submit" class="btn btn--primary btn--slide" style="min-width: 124px;">Verify</button>
+            									</div>
+            								</div>
+        								</form>
+        							</div>
+        						</div>
+                            
+                            <?php } ?>
+					    
+					    <?php break; case "1": ?>
 					    
 					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 

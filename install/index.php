@@ -204,14 +204,14 @@ if(is_writeable($installFile)){
         								    <?php if($errors==true){ ?>
         								        <button type="button" id="next" class="btn btn--primary btn--slide" style="min-width: 124px;" disabled>Next</button>
                                             <?php }else{ ?>
-                                                <a href="index.php?step=1" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
+                                                <a href="index.php?step=0" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
                                             <?php } ?>
         								</div>
         							</div>
         						</div>
     					    </div>
 					    
-					    <?php break; case "0": ?>
+					    <?php break; case "1": ?>
 					    
                             <?php
                               $license_code = null;
@@ -372,7 +372,7 @@ if(is_writeable($installFile)){
                             
                             <?php } ?>
 					    
-					    <?php break; case "1": ?>
+					    <?php break; case "0": ?>
 					    
 					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 

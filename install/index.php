@@ -204,7 +204,7 @@ if(is_writeable($installFile)){
         								    <?php if($errors==true){ ?>
         								        <button type="button" id="next" class="btn btn--primary btn--slide" style="min-width: 124px;" disabled>Next</button>
                                             <?php }else{ ?>
-                                                <a href="index.php?step=0" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
+                                                <a href="index.php?step=1" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
                                             <?php } ?>
         								</div>
         							</div>
@@ -248,7 +248,7 @@ if(is_writeable($installFile)){
             								</ol>
             							</div>
             							<div class="card__fade">
-            							    <form action="index.php?step=0" method="POST">
+            							    <form action="index.php?step=1" method="POST">
                 								<div class="mb-48">
                 								    <div class="notify notify--error" style="margin-bottom: 18px;">
                 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

@@ -557,6 +557,10 @@ if(is_writeable($installFile)){
                                 <?php }else{ ?>
                                     
                                     <h2 style="color: #f44336c7;">Sorry, something went wrong.</h2>
+									
+									<php >
+										echo "step1"
+									</php> 
 
                                 <?php } ?>
 					    

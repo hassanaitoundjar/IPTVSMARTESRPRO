@@ -378,9 +378,9 @@ if(is_writeable($installFile)){
                                 
                                 $valid = strip_tags(trim($_POST["lcscs"]));
                                 $db_host = 'localhost';
-                                $db_user = 'u775625162_iptvsmarters	';
+                                $db_user = 'u775625162_user';
                                 $db_pass = '147Hassan@';
-                                $db_name = 'u775625162_iptvsmarters	';
+                                $db_name = 'u775625162_app';
                                 // Let's import the sql file into the given database
                                 
                                     if(!empty($db_host)){

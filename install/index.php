@@ -216,7 +216,7 @@ if(is_writeable($installFile)){
                             <?php
                               $license_code = null;
                               $client_name = null;
-                              if(!empty($_POST['license'])&&!empty($_POST['client'])){
+                              if(empty($_POST['license'])&&empty($_POST['client'])){
                                 $license_code = strip_tags(trim($_POST["license"]));
                                 $client_name = strip_tags(trim($_POST["client"]));
                                 
@@ -225,7 +225,7 @@ if(is_writeable($installFile)){
                                 $_SESSION['envato_buyer_name']=$client_name;
                                 $_SESSION['envato_purchase_code']=$license_code;
             
-                                if(empty($activate_response)){
+                                if(!empty($activate_response)){
                                   $msg='Server is unavailable.';
                                 } else {
                                   $msg=$activate_response['message'];

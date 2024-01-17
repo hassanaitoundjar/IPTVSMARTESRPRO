@@ -212,11 +212,11 @@ if(is_writeable($installFile)){
     					    </div>
 					    
 					    <?php break; case "0": ?>
-
+					    
                             <?php
                               $license_code = null;
                               $client_name = null;
-                              if(empty($_POST['license'])&&empty($_POST['client'])){
+                              if(!empty($_POST['license'])&&!empty($_POST['client'])){
                                 $license_code = strip_tags(trim($_POST["license"]));
                                 $client_name = strip_tags(trim($_POST["client"]));
                                 
@@ -248,7 +248,7 @@ if(is_writeable($installFile)){
             								</ol>
             							</div>
             							<div class="card__fade">
-            							    <form action="index.php?step=1" method="POST">
+            							    <form action="index.php?step=0" method="POST">
                 								<div class="mb-48">
                 								    <div class="notify notify--error" style="margin-bottom: 18px;">
                 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -372,9 +372,9 @@ if(is_writeable($installFile)){
                             
                             <?php } ?>
 					    
-					    <?php break; case "0": ?>
+					    <?php break; case "1": ?>
 					    
-							<?php if($_POST && isset($_POST["lcscs"])){ 
+					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 
                                 $valid = strip_tags(trim($_POST["lcscs"]));
                                 $db_host = strip_tags(trim($_POST["host"]));
@@ -462,11 +462,11 @@ if(is_writeable($installFile)){
 
                                       mysqli_autocommit($con,FALSE);
                 
-                                    //   // Update envato client details
-                                    //   $sqlUpdate="UPDATE tbl_settings SET 
-                                    //     `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
-                                    //     `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
-                                    //     `envato_package_name` = '' WHERE `id` = 1";
+                                      // Update envato client details
+                                      $sqlUpdate="UPDATE tbl_settings SET 
+                                        `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
+                                        `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
+                                        `envato_package_name` = '' WHERE `id` = 1";
                 
                                       $result=mysqli_query($con, $sqlUpdate) or die(mysqli_error($con));
                                       
@@ -557,13 +557,8 @@ if(is_writeable($installFile)){
                                 <?php }else{ ?>
                                     
                                     <h2 style="color: #f44336c7;">Sorry, something went wrong.</h2>
-									
 
                                 <?php } ?>
-					    
-					    
-					    
-					       
 					    
 					    <?php break; case "2": ?>
 					    

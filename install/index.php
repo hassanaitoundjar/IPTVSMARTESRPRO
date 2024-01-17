@@ -295,7 +295,7 @@ if(is_writeable($installFile)){
             						<div class="card__content">
             							<div class="card__content__head">
             								<h3 class="card__title">
-            									<span>Verify Envato Purchase Code</span>
+            									<span>Verify Envato Purchase Code xdsc</span>
         									
             								</h3>
             							</div>

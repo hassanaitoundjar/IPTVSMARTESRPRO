@@ -204,7 +204,7 @@ if(is_writeable($installFile)){
         								    <?php if($errors==true){ ?>
         								        <button type="button" id="next" class="btn btn--primary btn--slide" style="min-width: 124px;" disabled>Next</button>
                                             <?php }else{ ?>
-                                                <a href="index.php?step=0" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
+                                                <a href="index.php?step=1" class="btn btn--primary btn--slide" style="min-width: 124px;">Next</a>
                                             <?php } ?>
         								</div>
         							</div>
@@ -212,7 +212,7 @@ if(is_writeable($installFile)){
     					    </div>
 					    
 					    <?php break; case "1": ?>
-					    
+
                             <?php
                               $license_code = null;
                               $client_name = null;
@@ -374,7 +374,7 @@ if(is_writeable($installFile)){
 					    
 					    <?php break; case "0": ?>
 					    
-					        <?php if($_POST && isset($_POST["lcscs"])){ 
+							<?php if($_POST && isset($_POST["lcscs"])){ 
                                 
                                 $valid = strip_tags(trim($_POST["lcscs"]));
                                 $db_host = strip_tags(trim($_POST["host"]));
@@ -560,6 +560,10 @@ if(is_writeable($installFile)){
 									
 
                                 <?php } ?>
+					    
+					    
+					    
+					       
 					    
 					    <?php break; case "2": ?>
 					    

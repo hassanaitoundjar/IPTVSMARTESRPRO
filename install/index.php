@@ -295,7 +295,7 @@ if(is_writeable($installFile)){
             						<div class="card__content">
             							<div class="card__content__head">
             								<h3 class="card__title">
-            									<span>Verify Envato Purchase Code test </span>
+            									<span>Verify Envato Purchase Code </span>
         									
             								</h3>
             							</div>
@@ -377,12 +377,14 @@ if(is_writeable($installFile)){
 					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 
                                 $valid = strip_tags(trim($_POST["lcscs"]));
-                                // $db_host = strip_tags(trim($_POST["host"]));
-                                // $db_user = strip_tags(trim($_POST["user"]));
+                                $db_host = strip_tags(trim($_POST["host"]));
+                                $db_user = strip_tags(trim($_POST["user"]));
                                 $db_pass = strip_tags(trim($_POST["pass"]));
                                 $db_name = strip_tags(trim($_POST["name"]));
                                 // Let's import the sql file into the given database
+                                // Attempt to connect to the database
                                 
+								
                                     if(!empty($db_host)){
                                       $con = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
                                       if(mysqli_connect_errno()){ ?>

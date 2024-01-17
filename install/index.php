@@ -225,7 +225,7 @@ if(is_writeable($installFile)){
                                 $_SESSION['envato_buyer_name']=$client_name;
                                 $_SESSION['envato_purchase_code']=$license_code;
             
-                                if(!empty($activate_response)){
+                                if(empty($activate_response)){
                                   $msg='Server is unavailable.';
                                 } else {
                                   $msg=$activate_response['message'];

@@ -225,7 +225,7 @@ if(is_writeable($installFile)){
                                 $_SESSION['envato_buyer_name']=$client_name;
                                 $_SESSION['envato_purchase_code']=$license_code;
             
-                                if(!empty($activate_response)){
+                                if(empty($activate_response)){
                                   $msg='Server is unavailable.';
                                 } else {
                                   $msg=$activate_response['message'];
@@ -248,7 +248,7 @@ if(is_writeable($installFile)){
             								</ol>
             							</div>
             							<div class="card__fade">
-            							    <form action="index.php?step=0" method="POST">
+            							    <form action="index.php?step=1" method="POST">
                 								<div class="mb-48">
                 								    <div class="notify notify--error" style="margin-bottom: 18px;">
                 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

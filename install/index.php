@@ -295,7 +295,7 @@ if(is_writeable($installFile)){
             						<div class="card__content">
             							<div class="card__content__head">
             								<h3 class="card__title">
-            									<span>Verify Envato Purchase Code </span>
+            									<span>Verify Envato Purchase Code</span>
         									
             								</h3>
             							</div>
@@ -309,7 +309,7 @@ if(is_writeable($installFile)){
                 										</svg>
                 										<span class="notify__text"><?php echo ucfirst($msg); ?></span>
                 									</div>
-                									<input type="" name="lcscs" id="lcscs" value="<?php echo ucfirst($activate_response['status']); ?>">
+                									<input type="hidden" name="lcscs" id="lcscs" value="<?php echo ucfirst($activate_response['status']); ?>">
                 								</div>
                 								<div class="card__content__foot">
                 									<div class="text-right">
@@ -382,9 +382,7 @@ if(is_writeable($installFile)){
                                 $db_pass = strip_tags(trim($_POST["pass"]));
                                 $db_name = strip_tags(trim($_POST["name"]));
                                 // Let's import the sql file into the given database
-                                // Attempt to connect to the database
                                 
-								
                                     if(!empty($db_host)){
                                       $con = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
                                       if(mysqli_connect_errno()){ ?>
@@ -408,7 +406,7 @@ if(is_writeable($installFile)){
                     										<span class="notify__text">Failed to connect to MySQL: <?php echo mysqli_connect_error(); ?></span>
                     									</div>
                 									
-                        								<input type="" name="lcscs" id="lcscs" value="<?php echo $valid; ?>">
+                        								<input type="hidden" name="lcscs" id="lcscs" value="<?php echo $valid; ?>">
                                                 
                                                         <div class="mb-16">
             												<label for="host" class="form-label">Database Host</label>
@@ -502,7 +500,7 @@ if(is_writeable($installFile)){
                     										</svg>
                     										<span class="notify__text">Database was successfully imported.</span>
                     									</div>
-                    									<input type="" name="dbscs" id="dbscs" value="true">
+                    									<input type="hidden" name="dbscs" id="dbscs" value="true">
                     								</div>
                     								<div class="card__content__foot">
                     									<div class="text-right">
@@ -526,7 +524,7 @@ if(is_writeable($installFile)){
                 							</div>
                 							<div class="card__fade">
                 							    <form action="index.php?step=1" method="POST">
-                    								<input type="" name="lcscs" id="lcscs" value="<?php echo $valid; ?>">
+                    								<input type="hidden" name="lcscs" id="lcscs" value="<?php echo $valid; ?>">
                                             
                                                     <div class="mb-16">
         												<label for="host" class="form-label">Database Host</label>

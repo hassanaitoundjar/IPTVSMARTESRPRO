@@ -110,7 +110,7 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">ApiKey</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="envato_api_key" class="form-control" placeholder="<?php echo $settings_row['envato_api_key'];?>"  disabled readonly>
+                                    <input type="text" name="envato_api_key" class="form-control" placeholder="<?php echo $settings_row['envato_api_key'];?>"  >
                                     <small id="sh-text1" class="form-text text-muted col-md-6" style="padding: 0px;">Click the Save button This key will be generated automatically.</small>
                                 </div>
                             </div>

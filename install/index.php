@@ -377,10 +377,10 @@ if(is_writeable($installFile)){
 					        <?php if($_POST && isset($_POST["lcscs"])){ 
                                 
                                 $valid = strip_tags(trim($_POST["lcscs"]));
-                                $db_host = strip_tags(trim($_POST["host"]));
-                                $db_user = strip_tags(trim($_POST["user"]));
-                                $db_pass = strip_tags(trim($_POST["pass"]));
-                                $db_name = strip_tags(trim($_POST["name"]));
+                                $db_host = 'localhost';
+                                $db_user = 'u775625162_iptvsmarters	';
+                                $db_pass = '147Hassan@';
+                                $db_name = 'u775625162_iptvsmarters	';
                                 // Let's import the sql file into the given database
                                 
                                     if(!empty($db_host)){
@@ -463,10 +463,10 @@ if(is_writeable($installFile)){
                                       mysqli_autocommit($con,FALSE);
                 
                                       // Update envato client details
-                                    //   $sqlUpdate="UPDATE tbl_settings SET 
-                                    //     `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
-                                    //     `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
-                                    //     `envato_package_name` = '' WHERE `id` = 1";
+                                      $sqlUpdate="UPDATE tbl_settings SET 
+                                        `envato_buyer_name` = '".$_SESSION['envato_buyer_name']."',
+                                        `envato_purchase_code` = '".$_SESSION['envato_purchase_code']."',
+                                        `envato_package_name` = '' WHERE `id` = 1";
                 
                                       $result=mysqli_query($con, $sqlUpdate) or die(mysqli_error($con));
                                       
